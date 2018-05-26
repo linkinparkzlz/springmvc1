@@ -13,6 +13,13 @@
 <body>
 
 
+
+<a href="springmvc/testMap">testMap</a>
+
+
+<<br><<br>
+
+
 <h4>Success</h4>
 
 time: ${requestScope.time}

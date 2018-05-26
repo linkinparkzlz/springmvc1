@@ -8,7 +8,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.Arrays;
 import java.util.Date;
+import java.util.Map;
 
 /**
  * @RequestMapping 修饰类
@@ -127,10 +129,9 @@ public class HelloWorldTest2 {
      * 目标方法的返回值可以是ModelAndView类型
      * <p>
      * 其中可以包含视图和模型信息
-     *
-     *
+     * <p>
+     * <p>
      * SpringMVC会把ModelAndView的model中的数据放到request对象中
-     *
      */
 
     @RequestMapping("/testModelAndView")
@@ -147,6 +148,18 @@ public class HelloWorldTest2 {
         return modelAndView;
 
 
+    }
+
+    /**
+     * 目标方法可以添加Map类型的参数
+     */
+
+    @RequestMapping("/testMap")
+    public String testMap(Map<String, Object> map) {
+
+        map.put("names", Arrays.asList("zhangsan", "lisi", "wangwu"));
+
+        return SUCCESS;
     }
 
 
