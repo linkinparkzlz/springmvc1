@@ -14,6 +14,21 @@
 
 
 
+<a href="springmvc/testSessionAttribuates">testSessionAttribuates</a>
+
+
+
+<<br><<br>
+
+request  user: ${requestScope.user}
+
+<<br><<br>
+
+
+<<br><<br>
+
+
+
 <a href="springmvc/testMap">testMap</a>
 
 

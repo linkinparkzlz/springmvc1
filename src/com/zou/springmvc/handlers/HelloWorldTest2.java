@@ -2,10 +2,8 @@ package com.zou.springmvc.handlers;
 
 
 import com.zou.springmvc.bean.User;
-import org.springframework.web.bind.annotation.CookieValue;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.Arrays;
@@ -15,7 +13,8 @@ import java.util.Map;
 /**
  * @RequestMapping 修饰类
  */
-
+@SessionAttributes({"user"})
+@Controller
 @RequestMapping("/springmvc")
 public class HelloWorldTest2 {
 
@@ -151,7 +150,7 @@ public class HelloWorldTest2 {
     }
 
     /**
-     * 目标方法可以添加Map类型的参数
+     * 目标方法可以添加Map类型的参数(或者是Model或者是ModelMap类型)
      */
 
     @RequestMapping("/testMap")
@@ -161,6 +160,27 @@ public class HelloWorldTest2 {
 
         return SUCCESS;
     }
+
+
+    /**
+     *
+     * @SessionAttribuates  只能放在类的上面
+     *
+     */
+
+    @RequestMapping("/testSessionAttribuates")
+    public String testSessionAttribuates(Map<String, Object> map) {
+
+        User user = new User("zzz", "11111", "333@qq.com", 22);
+
+        map.put("user", user);
+
+        return SUCCESS;
+
+    }
+
+
+
 
 
 }

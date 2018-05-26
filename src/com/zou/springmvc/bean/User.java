@@ -54,6 +54,17 @@ public class User {
     public void setAddress(Address address) {
         this.address = address;
     }
+
+
+    public User() {
+    }
+
+    public User(String username, String password, String email, int age) {
+        this.username = username;
+        this.password = password;
+        this.email = email;
+        this.age = age;
+    }
 }
 
 
