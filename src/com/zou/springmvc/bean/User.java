@@ -3,6 +3,9 @@ package com.zou.springmvc.bean;
 public class User {
 
 
+    private int id;
+
+
     private String username;
 
     private String password;
@@ -11,6 +14,14 @@ public class User {
 
     private int age;
 
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     private Address address;
 
@@ -64,6 +75,20 @@ public class User {
         this.password = password;
         this.email = email;
         this.age = age;
+    }
+
+
+    public User(int id, String username, String password, String email, int age) {
+        this.id = id;
+        this.username = username;
+        this.password = password;
+        this.email = email;
+        this.age = age;
+    }
+
+    @Override
+    public String toString() {
+        return super.toString();
     }
 }
 

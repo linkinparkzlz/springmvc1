@@ -13,7 +13,7 @@ import java.util.Map;
 /**
  * @RequestMapping 修饰类
  */
-@SessionAttributes({"user"})
+//@SessionAttributes({"user"})
 @Controller
 @RequestMapping("/springmvc")
 public class HelloWorldTest2 {
@@ -163,9 +163,7 @@ public class HelloWorldTest2 {
 
 
     /**
-     *
-     * @SessionAttribuates  只能放在类的上面
-     *
+     * @SessionAttribuates 只能放在类的上面
      */
 
     @RequestMapping("/testSessionAttribuates")
@@ -180,7 +178,40 @@ public class HelloWorldTest2 {
     }
 
 
+    /**
+     *
+     */
 
+    @RequestMapping("/testModelAttribuate")
+    public String testModelAttribuate(User user) {
+
+        System.out.println("修改： " + user);
+
+        return SUCCESS;
+    }
+
+    /**
+     * 有@ModelAttribuate 标记的方法，会在每个目标方法执行之前被SpringMVC调用！
+     *
+     * @param id
+     * @param map
+     */
+
+    @ModelAttribute
+    public void getUser(@RequestParam(value = "id", required = false) Integer id, Map<String, Object> map) {
+
+        if (id != null) {
+
+            //模拟从数据库中获取一个对象
+            User user = new User(1, "zzz", "1234", "aa@qq.com", 12);
+
+            System.out.println("从数据库中国获取一个对象");
+
+            map.put("user", user);
+        }
+
+
+    }
 
 
 }
