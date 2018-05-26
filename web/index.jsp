@@ -12,6 +12,11 @@
 </head>
 <body>
 
+<a href="testViewAndViewResolver">testViewAndViewResolver</a>
+
+
+<br><br>
+
 
 <!--
 
