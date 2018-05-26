@@ -6,6 +6,9 @@ import org.springframework.web.bind.annotation.CookieValue;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
+
+import java.util.Date;
 
 /**
  * @RequestMapping 修饰类
@@ -116,6 +119,35 @@ public class HelloWorldTest2 {
 //        return SUCCESS;
 //
 //    }
+
+
+    /**
+     * 处理模型数据
+     * <p>
+     * 目标方法的返回值可以是ModelAndView类型
+     * <p>
+     * 其中可以包含视图和模型信息
+     *
+     *
+     * SpringMVC会把ModelAndView的model中的数据放到request对象中
+     *
+     */
+
+    @RequestMapping("/testModelAndView")
+    public ModelAndView testModelAndView() {
+
+        String viewName = SUCCESS;
+
+        ModelAndView modelAndView = new ModelAndView(viewName);
+
+        //添加模型数据到ModelAndView
+        modelAndView.addObject("time", new Date());
+
+
+        return modelAndView;
+
+
+    }
 
 
 }

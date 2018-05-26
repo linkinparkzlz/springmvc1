@@ -13,6 +13,13 @@
 <body>
 
 
+<h4>Success</h4>
+
+time: ${requestScope.time}
+
+<<br><<br>
+
+
 <a href="springmvc/testServletAPI">testServletAPI</a>
 
 
